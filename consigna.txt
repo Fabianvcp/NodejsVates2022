@@ -1,0 +1,23 @@
+A continuación se presesenta una propuesta con los endpoints que podrían agregarse.
+
+
+ABM de telefonos:
+-----------------
+GET /telefonos/        = consultar todos                -> para probar
+GET /telefonos/:id     = consultar uno por id           -> para probar
+POST /telefonos        = agregar uno nuevo              -> para probar
+PUT  /telefonos/:id    = modificar un telefono existente ->para probar    
+DELETE /telefonos/:id  = eliminar un telefono           -> para probar
+
+Relación entre personas y telefonos:
+------------------------------------
+GET /personas/:id/telefonos       = consultar los telefonos de una persona
+GET /personas/:id/telefonos/:tipo = consultar los telefonos de una persona, filtrando por tipo
+
+Búsquedas:
+-----------
+GET /telefonos/?sufijo=xxx = consultar todos los telefonos cuyo número finaliza en una secuencia
+GET /personas/?filtro=xxx  = buscar las personas cuyo nombre o apellido incluyen una subcadena
+
+Enviar el repositorio de este app
+mailto: diegojserrano@gmail.com
