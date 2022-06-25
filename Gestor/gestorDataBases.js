@@ -62,7 +62,7 @@ async function eliminarLinea(num) {
 //     const conn = await mariadb.createConnection(config)
 //     await conn.query()
 //     conn.end()
-}
+// }
 
 
 exports.agregarLinea = agregarLinea
