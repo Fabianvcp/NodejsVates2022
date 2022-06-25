@@ -39,29 +39,29 @@ async function eliminarLinea(num) {
 }
 
 
-//Relación entre personas y telefonos
-async function consultarLineaPorDueño(nueva) {
-    const conn = await mariadb.createConnection(config)
-    await conn.query()
-    conn.end()
-}
-async function consultarLineaPorDueñoPorTipo(nueva) {
-    const conn = await mariadb.createConnection(config)
-    await conn.query()
-    conn.end()
-}
+// //Relación entre personas y telefonos
+// async function consultarLineaPorDueño(nueva) {
+//     const conn = await mariadb.createConnection(config)
+//     await conn.query()
+//     conn.end()
+// }
+// async function consultarLineaPorDueñoPorTipo(nueva) {
+//     const conn = await mariadb.createConnection(config)
+//     await conn.query()
+//     conn.end()
+// }
 
 
-// Búsquedas
-async function consultarSufijo(nueva) {
-    const conn = await mariadb.createConnection(config)
-    await conn.query()
-    conn.end()
-}
-async function consultarFiltroNombreApellido(nueva) {
-    const conn = await mariadb.createConnection(config)
-    await conn.query()
-    conn.end()
+// // Búsquedas
+// async function consultarSufijo(nueva) {
+//     const conn = await mariadb.createConnection(config)
+//     await conn.query()
+//     conn.end()
+// }
+// async function consultarFiltroNombreApellido(nueva) {
+//     const conn = await mariadb.createConnection(config)
+//     await conn.query()
+//     conn.end()
 }
 
 
@@ -70,4 +70,3 @@ exports.consultarTodasLasLineas = consultarTodasLasLineas
 exports.consultarLinea = consultarLinea
 exports.editarLinea = editarLinea
 exports.eliminarLinea = eliminarLinea
-// exports.eliminar = eliminar
