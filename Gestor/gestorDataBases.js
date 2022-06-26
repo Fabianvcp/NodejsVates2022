@@ -70,34 +70,44 @@ async function eliminarLinea(num) {
 }
 
 
-// //Relación entre personas y telefonos
-// async function consultarLineaPorDueño(nueva) {
-//     const conn = await mariadb.createConnection(config)
-//     await conn.query()
-//     conn.end()
-// }
-// async function consultarLineaPorDueñoPorTipo(nueva) {
-//     const conn = await mariadb.createConnection(config)
-//     await conn.query()
-//     conn.end()
-// }
+//Relación entre personas y telefonos
+async function consultarLineaPorDueño(documento) {
+    const conn = await mariadb.createConnection(config)  
+    let datos = await conn.query("SELECT p.nombre,p.apellido, p.documento, t.numero, t.id_tipo FROM personas2 p,telefonos t WHERE p.documento = ? and t.documento = p.documento", [documento])
+    conn.end()
+    return datos
+}
+async function consultarLineaPorDueñoPorTipo(documento,tipo) {
+    const conn = await mariadb.createConnection(config)        
+    let datos = await conn.query("SELECT p.nombre,p.apellido, p.documento, t.numero FROM personas2 p,telefonos t WHERE p.documento = ? and t.id_tipo = ?", [documento,tipo])
+    conn.end()
+    return datos
+}
 
 
-// // Búsquedas
-// async function consultarSufijo(nueva) {
-//     const conn = await mariadb.createConnection(config)
-//     await conn.query()
-//     conn.end()
-// }
-// async function consultarFiltroNombreApellido(nueva) {
-//     const conn = await mariadb.createConnection(config)
-//     await conn.query()
-//     conn.end()
-// }
+// Búsquedas
+async function consultarSufijo(num) {
+    const conn = await mariadb.createConnection(config)
+    let resultado = await conn.query("SELECT numero, documento FROM telefonos WHERE numero LIKE ?", '%' +num)
+    conn.end()
+    return resultado
+}
+async function consultarFiltroNombreApellido(persona) {
+    const conn = await mariadb.createConnection(config)
+    let resultado = await conn.query("SELECT nombre, apellido, documento FROM personas2 WHERE nombre LIKE ? or apellido LIKE ?", [persona + '%', persona + '%'])
+    conn.end()
+    return resultado
+}
 
-
+//ABM Exports
 exports.agregarLinea = agregarLinea
 exports.consultarTodasLasLineas = consultarTodasLasLineas
 exports.consultarLinea = consultarLinea
 exports.editarLinea = editarLinea
 exports.eliminarLinea = eliminarLinea
+//Relación entre personas y telefonos
+exports.consultarLineaPorDueño = consultarLineaPorDueño
+exports.consultarLineaPorDueñoPorTipo = consultarLineaPorDueñoPorTipo
+// Búsquedas
+exports.consultarSufijo = consultarSufijo
+exports.consultarFiltroNombreApellido = consultarFiltroNombreApellido

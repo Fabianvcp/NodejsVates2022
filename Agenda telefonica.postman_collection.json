@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "a69d5269-e561-4b23-8282-fb3b8c676caf",
+		"name": "Agenda telefonica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3784344"
+	},
+	"item": [
+		{
+			"name": "Traer linea telefonica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/telefonos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"telefonos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer todas las lineas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/telefonos/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"telefonos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar nueva linea telefonica",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"numero\": \"3541213487\",\r\n        \"id_tipo\": 2,\r\n        \"documento\": 38021089\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/telefonos/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"telefonos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar linea tefonica",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar linea telefonica",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar lineas de una persona",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/personas/38021089/telefonos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"personas",
+						"38021089",
+						"telefonos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar los tipos de telefonos de una persona",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/personas/38021089/telefonos/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"personas",
+						"38021089",
+						"telefonos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar todos los telefonos cuyo número finaliza en una secuencia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/personas/?filtro=a",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"personas",
+						""
+					],
+					"query": [
+						{
+							"key": "filtro",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -21,7 +21,18 @@ router.post("/", async(req, res)=>{
 
 //Traer todas las lineas
 router.get("/", async(req, res) => {
-    res.json(await  gestor.consultarTodasLasLineas())
+    if(req.query.sufijo){
+        let num = req.query.sufijo;
+            let linea_encontrada = await gestor.consultarSufijo(num)
+    
+            if (linea_encontrada) 
+                res.json(linea_encontrada)
+            else
+                res.status(400).send("La linea no fue encontrada")
+
+    }else{
+        res.json(await  gestor.consultarTodasLasLineas())
+    }
     res.end()
 })
 
@@ -87,10 +98,5 @@ router.delete("/:linea", async(req, res)=>{
 
     res.end()
 })
-
-// Relación entre personas y telefonos
-
-// Búsquedas
-
 
 exports.router = router
