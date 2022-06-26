@@ -86,15 +86,17 @@ async function consultarLineaPorDueñoPorTipo(documento,tipo) {
 
 
 // Búsquedas
+// consulta de numeros de telefonos con el sufijo del mismo
 async function consultarSufijo(num) {
     const conn = await mariadb.createConnection(config)
     let resultado = await conn.query("SELECT numero, documento FROM telefonos WHERE numero LIKE ?", '%' +num)
     conn.end()
     return resultado
 }
+//consulta de personas con que tengan nombre o apellido con un parecido al ingresado
 async function consultarFiltroNombreApellido(persona) {
     const conn = await mariadb.createConnection(config)
-    let resultado = await conn.query("SELECT nombre, apellido, documento FROM personas2 WHERE nombre LIKE ? or apellido LIKE ?", [persona + '%', persona + '%'])
+    let resultado = await conn.query("SELECT nombre, apellido, documento FROM personas2 WHERE nombre LIKE ? or apellido LIKE ?", ['%' +persona + '%', persona + '%'])
     conn.end()
     return resultado
 }
